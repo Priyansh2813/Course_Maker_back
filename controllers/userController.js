@@ -58,6 +58,9 @@ export const login =catchAsyncError(async(req,res,next)=>{
 export const logout = catchAsyncError(async (req,res,next)=>{
     res.status(200).cookie("token",null,{
         expires:new Date(Date.now()),
+        httpOnly:true,
+        secure:true,
+        sameSite:"none",
     }).json({
         success:true,
         message:"Logged out successfully",
@@ -316,7 +319,7 @@ export const deleteUser = catchAsyncError(async (req, res, next) => {
     }).limit(12);
     const subscription= await User.find({"subscription.status":"active"}).limit(1);
     stats[0].users= await User.countDocuments();
-    stats[0].subscription= subcription.length;
+    stats[0].subscription= subscription.length;
     stats[0].createdAt=new Date(Date.now());
     await stats[0].save();
 
