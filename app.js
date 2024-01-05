@@ -21,13 +21,7 @@ app.use(
 );
 app.use(cookieParser());
 
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true, //access-control-allow-credentials:true
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  })
-);
+app.use(cors());
 
 //importing and using routes
 
@@ -39,7 +33,7 @@ export default app;
 
 app.get("/", (req, res) =>
   res.send(
-    `<h1>Site is Working. click <a href=${process.env.FRONTEND_URL}>here</a> to visit frontend.</h1>`
+    `<h1>Site is Working. Click <a href=${process.env.FRONTEND_URL}>here</a> to visit frontend.</h1>`
   )
 );
 
