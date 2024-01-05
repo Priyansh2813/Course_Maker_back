@@ -21,7 +21,7 @@ app.use(
 );
 app.use(cookieParser());
 
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 //importing and using routes
 
