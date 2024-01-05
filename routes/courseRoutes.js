@@ -6,8 +6,15 @@ import { authorizeSubscribers, authorizedAdmin, isAuthenticated } from "../middl
 
 
 const router = express.Router();
-
-
+//updated from stackoverflow
+router.get("/", (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Max-Age", "1800");
+    res.setHeader("Access-Control-Allow-Headers", "content-type");
+    res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+     });
+     //end of update
 router.route("/courses").get(getAllCourses);
 
 router.route("/createcourse").post(isAuthenticated,authorizedAdmin,singleUpload,createCourse);
