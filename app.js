@@ -21,7 +21,16 @@ app.use(
 );
 app.use(cookieParser());
 
-app.use(cors({ origin: "*" }));
+const options = [
+  cors({
+    origin: "*",
+    methods: "*",
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  }),
+];
+
+app.use(options);
 
 //importing and using routes
 
