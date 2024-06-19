@@ -32,7 +32,7 @@ const options = [
   }),
 ];
 
-app.use(options);
+app.use(options[0]);
 
 //importing and using routes
 
