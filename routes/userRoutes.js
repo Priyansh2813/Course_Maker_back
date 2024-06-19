@@ -21,9 +21,7 @@ import { authorizedAdmin, isAuthenticated } from "../middlewares/auth.js";
 import singleUpload from "../middlewares/multer.js";
 
 const router = express.Router();
-//updated from stackoverflow
-r
-//end of update
+
 router.route("/register").post(singleUpload, register);
 
 router.route("/login").post(login);
