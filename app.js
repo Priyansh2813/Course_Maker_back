@@ -4,7 +4,7 @@ import course from "./routes/courseRoutes.js";
 import ErrorMiddleware from "./middlewares/Error.js";
 import user from "./routes/userRoutes.js";
 import cookieParser from "cookie-parser";
-import payment from "./routes/paymentroutes.js";
+
 import other from "./routes/otherRoutes.js";
 import cors from "cors";
 config({
@@ -38,7 +38,7 @@ app.use(options);
 
 app.use("/api/v1", course);
 app.use("/api/v1", user);
-app.use("/api/v1", payment);
+
 app.use("/api/v1", other);
 
 
