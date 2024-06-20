@@ -7,11 +7,21 @@ import cookieParser from "cookie-parser";
 
 import other from "./routes/otherRoutes.js";
 import cors from "cors";
+
 config({
   path: "./config/config.env",
 });
 
 const app = express();
+
+
+app.use(cors({
+  origin: '*',
+  methods: 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+  allowedHeaders: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
+  credentials: true
+}));
+
 
 //using middlewares
 
@@ -25,13 +35,6 @@ app.use(cookieParser());
 
 
 
-app.use(function (req, res, next) {
-res.setHeader('Access-Control-Allow-Origin', 'http://localhost:9000');
-res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-res.setHeader('Access-Control-Allow-Credentials', true);
-next();
-});
 
 //importing and using routes
 
