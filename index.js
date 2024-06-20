@@ -18,6 +18,6 @@ nodeCron.schedule("0 0 0 5 * *", async () => {
     console.log(error);
   }
 });
-app.listen(process.env.PORT, () => {
-  console.log(`Server is working on port:${process.env.PORT}`);
-});
+ app.listen(process.env.PORT, () => {
+   console.log(`Server is working on port:${process.env.PORT}`);
+ });
