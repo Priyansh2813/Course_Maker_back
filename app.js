@@ -19,7 +19,7 @@ app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
 
-  const allowedOrigins = ['https://course-maker-frontend.vercel.app/', 'http://localhost:3000'];
+  const allowedOrigins = ['https://course-maker-frontend.onrender.com/', 'http://localhost:3000'];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
        res.setHeader('Access-Control-Allow-Origin', origin);
